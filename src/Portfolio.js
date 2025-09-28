@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ExternalLink, Code, User, Briefcase } from 'luc
 
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState('about');
+  const [emailCopied, setEmailCopied] = useState(false);
 
   const projects = [
     {
@@ -47,7 +48,7 @@ const Portfolio = () => {
       company: "Electronic Arts",
       type: "Forage",
       location: "",
-      dates: "Aug 2025",
+      dates: "Sep 2025",
       description: "Completed industry-standard software engineering simulation, gaining exposure to professional development practices and workflows used in game development."
     },
     {
@@ -68,6 +69,16 @@ const Portfolio = () => {
     }
   ];
 
+  const copyEmailToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText('umermalik2004@gmail.com');
+      setEmailCopied(true);
+      setTimeout(() => setEmailCopied(false), 2000); // Hide after 2 seconds
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  };
+
   const NavButton = ({ section, icon: Icon, label, isActive, onClick }) => (
     <button
       onClick={onClick}
@@ -84,50 +95,56 @@ const Portfolio = () => {
   );
 
   const Footer = () => (
-  <footer className="border-t border-gray-200">
-    <div className="max-w-4xl mx-auto px-6 py-8">
-      <div className="flex justify-center gap-6">
-        <a 
-          href="https://github.com/umer-exe" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 text-gray-500 hover:scale-110 transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
-          onMouseEnter={e => e.target.style.color = 'var(--accent)'}
-          onMouseLeave={e => e.target.style.color = ''}
-          onFocus={e => e.target.style.boxShadow = `0 0 0 2px var(--accent)`}
-          onBlur={e => e.target.style.boxShadow = ''}
-          aria-label="GitHub Profile"
-        >
-          <Github size={20} />
-        </a>
-        <a 
-          href="https://www.linkedin.com/in/umer-malik28/" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="p-3 text-gray-500 hover:scale-110 transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
-          onMouseEnter={e => e.target.style.color = 'var(--accent)'}
-          onMouseLeave={e => e.target.style.color = ''}
-          onFocus={e => e.target.style.boxShadow = `0 0 0 2px var(--accent)`}
-          onBlur={e => e.target.style.boxShadow = ''}
-          aria-label="LinkedIn Profile"
-        >
-          <Linkedin size={20} />
-        </a>
-        <a 
-          href="mailto:umermalik2004@gmail.com"
-          className="p-3 text-gray-500 hover:scale-110 transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
-          onMouseEnter={e => e.target.style.color = 'var(--accent)'}
-          onMouseLeave={e => e.target.style.color = ''}
-          onFocus={e => e.target.style.boxShadow = `0 0 0 2px var(--accent)`}
-          onBlur={e => e.target.style.boxShadow = ''}
-          aria-label="Email Contact"
-        >
-          <Mail size={20} />
-        </a>
+    <footer className="border-t border-gray-200">
+      <div className="max-w-4xl mx-auto px-6 py-8">
+        <div className="flex justify-center gap-6">
+          <a 
+            href="https://github.com/umer-exe" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 text-gray-500 hover:scale-110 transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
+            style={{'--focus-ring-color': 'var(--accent)'}}
+            onMouseEnter={e => e.target.style.color = 'var(--accent)'}
+            onMouseLeave={e => e.target.style.color = ''}
+            onFocus={e => e.target.style.boxShadow = `0 0 0 2px var(--accent)`}
+            onBlur={e => e.target.style.boxShadow = ''}
+            aria-label="GitHub Profile"
+          >
+            <Github size={20} />
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/umer-malik28/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-3 text-gray-500 hover:scale-110 transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
+            onMouseEnter={e => e.target.style.color = 'var(--accent)'}
+            onMouseLeave={e => e.target.style.color = ''}
+            onFocus={e => e.target.style.boxShadow = `0 0 0 2px var(--accent)`}
+            onBlur={e => e.target.style.boxShadow = ''}
+            aria-label="LinkedIn Profile"
+          >
+            <Linkedin size={20} />
+          </a>
+          <button 
+            onClick={copyEmailToClipboard}
+            className="p-3 text-gray-500 hover:scale-110 transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 relative"
+            onMouseEnter={e => e.target.style.color = 'var(--accent)'}
+            onMouseLeave={e => e.target.style.color = ''}
+            onFocus={e => e.target.style.boxShadow = `0 0 0 2px var(--accent)`}
+            onBlur={e => e.target.style.boxShadow = ''}
+            aria-label="Copy Email"
+          >
+            <Mail size={20} />
+            {emailCopied && (
+              <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                Copied!
+              </span>
+            )}
+          </button>
+        </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
 
   const Pill = ({ children, variant = 'default' }) => (
     <span
