@@ -31,7 +31,7 @@ const Portfolio = () => {
 
   const skills = [
     "JavaScript", "React", "Node.js", "Git", "PostgreSQL", 
-    "HTML/CSS", "Java", "C++", "Express", "REST APIs", "VS Code", "Photoshop", "Illustrator"
+    "HTML/CSS", "Java", "C++", "Express", "REST APIs", "VS Code", "Photoshop", "Illustrator", "Figma"
   ];
 
   const experiences = [
@@ -197,7 +197,7 @@ const Portfolio = () => {
       <main className="flex-1 max-w-4xl mx-auto px-6 py-12 w-full min-h-0">
         {/* About Section */}
         {activeSection === 'about' && (
-          <div className="space-y-12 animate-in fade-in duration-300" style={{transform: 'scale(1.15)', transformOrigin: 'top center'}}>
+        <div className="space-y-12 animate-in fade-in duration-300" style={{transform: 'scale(1.15)', transformOrigin: 'top center'}}>
             <div className="text-center space-y-4">
               <h2 className="text-4xl font-bold text-gray-900" style={{fontFamily: 'Space Grotesk, sans-serif'}}>
                 Hi, I'm <span style={{color: 'var(--accent)'}}>Umer</span>.
