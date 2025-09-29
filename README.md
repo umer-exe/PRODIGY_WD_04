@@ -4,7 +4,7 @@ A clean, minimal developer portfolio showcasing projects, skills, and experience
 
 🔗 **Live Demo:** https://portfolio-web-lac-six.vercel.app/
 
-## 🎨 Features
+## Features
 
 - **Clean & Minimal Design** - Focus on content with subtle interactions
 - **Fully Responsive** - Works seamlessly on desktop, tablet, and mobile
@@ -16,7 +16,7 @@ A clean, minimal developer portfolio showcasing projects, skills, and experience
 - **Copy-to-Clipboard Email** - One-click email copy functionality
 - **Purple Accent Theme** - Custom color scheme (`#6C5CE7`)
 
-## 🛠️ Technologies Used
+## Technologies Used
 
 - **React** - Component-based UI framework
 - **Tailwind CSS** - Utility-first CSS framework
